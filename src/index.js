@@ -11,6 +11,8 @@ import Blog from "./components/Blog/Blog";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import ChefCartDetails from "./components/ChefCart/ChefCartDetails";
+import AuthProvider from "./components/Provider/AuthProvider";
+import PrivateRoutes from "./components/Routers/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -40,9 +42,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/ChefCartDetails/:id",
-        element: <ChefCartDetails></ChefCartDetails>, 
-        loader: ({params})=>fetch(`http://localhost:5000/ChefCartDetails/${params.id}`)
-      }
+        element: <PrivateRoutes><ChefCartDetails></ChefCartDetails></PrivateRoutes>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/ChefCartDetails/${params.id}`),
+      },
     ],
   },
 ]);
@@ -50,7 +53,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
 

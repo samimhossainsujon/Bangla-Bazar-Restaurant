@@ -23,10 +23,10 @@ const ChefCart = ({ Chefdata }) => {
         </div>
       </div>
       <div className="card-body">
-        <h2 className="card-title justify-center font-bold text-2xl">
+        <h2 className="card-title justify-center font-extrabold text-2xl text-black">
           {Chef_Name}
         </h2>
-        <div className="flex justify-between text-lg font-bold text-black">
+        <div className="flex justify-between text-lg font-bold text-slate-700">
           <h4>Experience {Years_of_experience} Years</h4>
           <h4>Recipe {Numbers_of_recipes} Item</h4>
         </div>

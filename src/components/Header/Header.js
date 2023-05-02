@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Header = () => {
+  const { user, LogOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    LogOut()
+      .then(() => {
+        console.log("Logged out successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <div className="navbar bg-slate-300 mb-5 rounded-lg">
@@ -30,7 +42,7 @@ const Header = () => {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              <Link to="/order">Order Now</Link>
+
               <li>
                 <Link to="/blog">Blog</Link>
               </li>
@@ -52,24 +64,33 @@ const Header = () => {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/order">Order Now</Link>
-            </li>
+
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            <li>
-              <Link to="/login">login</Link>
-            </li>
+            <li></li>
           </ul>
         </div>
 
         <div className="navbar-end">
-          <label className="btn btn-ghost btn-circle avatar">
-            <div className="w-24 rounded-full">
-              <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+          <div className="flex items-center">
+            <div>
+              <label className="btn btn-ghost btn-circle avatar">
+                {user && (
+                  <div className="w-24 rounded-full">
+                    <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                  </div>
+                )}
+              </label>
             </div>
-          </label>
+            <div className="ms-2 mr-3">
+              {user ? (
+                <button onClick={handleLogOut}>LogOut</button>
+              ) : (
+                <Link to="/login">login</Link>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -77,4 +98,3 @@ const Header = () => {
 };
 
 export default Header;
-
