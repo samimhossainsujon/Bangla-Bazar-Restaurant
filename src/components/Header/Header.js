@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-slate-300 mb-5 rounded-lg">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -42,9 +42,9 @@ const Header = () => {
           </div>
           <Link
             to="/"
-            className="btn btn-ghost normal-case text-lg font-bold font-black"
+            className=" btn-ghost normal-case text-lg font-bold font-black"
           >
-            My Food Panda
+            Bangla Bazar & Restaurant
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
