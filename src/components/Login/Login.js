@@ -1,20 +1,46 @@
 import React, { useContext } from "react";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { BsGoogle } from "react-icons/bs";
+import { AiFillGithub } from "react-icons/ai";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, SingInGoogle, SignInGithub } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   console.log("login page ", location);
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || `/ChefCartDetails`;
+
+  //=============================
+  //google sing in google
+  //=============================
+
+  const handelGoogleSingIn = () => {
+    SingInGoogle();
+    console.log(SingInGoogle);
+    navigate(from, { replace: true });
+  };
+  //=============================
+
+ 
+  
+  
+  //=============================
+  //google sing in github
+  //=============================
+  const handelgithubSingIn = () => {
+    SignInGithub();
+    navigate(from, { replace: true });
+  };
+
+  //=============================
 
   const handelLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-   
+
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
@@ -44,7 +70,6 @@ const Login = () => {
                     placeholder="email"
                     className="input input-bordered"
                     name="email"
-                    required
                   />
                 </div>
 
@@ -64,9 +89,24 @@ const Login = () => {
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Log in</button>
                 </div>
+
+                <button
+                  onClick={handelGoogleSingIn}
+                  className="btn btn-outline btn-secondary text-2xl mt-6"
+                >
+                  <BsGoogle className="mr-5 "></BsGoogle>google Login
+                </button>
+
+                <button
+                  onClick={handelgithubSingIn}
+                  className="btn btn-outline btn-success font-bold text-2xl mt-4 text-black"
+                >
+                  <AiFillGithub className="mr-5"></AiFillGithub>Git hub
+                </button>
+
                 <Link
                   to="/register"
-                  className="label-text-alt link link-hover text-blue-500"
+                  className="label-text-alt link link-hover text-blue-500 text-lg"
                 >
                   New member? Register here.
                 </Link>

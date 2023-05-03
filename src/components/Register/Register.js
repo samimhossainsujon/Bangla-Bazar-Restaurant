@@ -1,9 +1,40 @@
 import React, { useContext } from "react";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { BsGoogle } from "react-icons/bs";
+import { AiFillGithub } from "react-icons/ai";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser,SingInGoogle,SignInGithub } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log("login page ", location);
+  const from = location.state?.from?.pathname || "/";
+
+  //=============================
+  //google sing in google
+  //=============================
+
+  const handelGoogleSingIn = () => {
+    SingInGoogle();
+    console.log(SingInGoogle);
+    navigate(from, { replace: true });
+  };
+  //=============================
+
+ 
+  
+  
+  //=============================
+  //google sing in github
+  //=============================
+  const handelgithubSingIn = () => {
+    SignInGithub();
+    navigate(from, { replace: true });
+  };
+
+  //=============================
 
   const handelRegister = (event) => {
     event.preventDefault();
@@ -90,9 +121,15 @@ const Register = () => {
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Register Now</button>
               </div>
+
+              <button onClick={handelGoogleSingIn} className="btn btn-outline btn-secondary text-2xl mt-6">
+                <BsGoogle className="mr-5 "></BsGoogle>google Login</button>
+               
+                <button onClick={handelgithubSingIn} className="btn btn-outline btn-success font-bold mt-5 mb-3 text-2xl text-black">
+                 <AiFillGithub className="mr-5"></AiFillGithub>Git hub</button>
               <Link
                 to="/login"
-                className="label-text-alt link link-hover text-blue-500"
+                className="label-text-alt link link-hover text-blue-500 text-lg"
               >
                 already have an account login here.
               </Link>

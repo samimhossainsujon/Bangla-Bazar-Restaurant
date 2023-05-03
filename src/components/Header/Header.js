@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { hover } from "@testing-library/user-event/dist/hover";
+import './Header.css'
 
 const Header = () => {
   const { user, LogOut } = useContext(AuthContext);
@@ -77,11 +79,15 @@ const Header = () => {
             <div>
               <label className="btn btn-ghost btn-circle avatar">
                 {user && (
-                  <div className="w-24 rounded-full">
-                    <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                  <div className="w-24 rounded-full profiles__group">
+                    <img src={user?.photoURL} alt='' />
+                    <p>{user?.displayName}</p>
                   </div>
                 )}
               </label>
+
+
+
             </div>
             <div className="ms-2 mr-3">
               {user ? (
@@ -98,3 +104,4 @@ const Header = () => {
 };
 
 export default Header;
+
