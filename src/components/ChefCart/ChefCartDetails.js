@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AiFillLike } from "react-icons/ai";
-import { MdOutlineFavorite, MdFavorite,MdFavoriteBorder } from 'react-icons/md';
+import { MdOutlineFavorite, MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 
 
 
@@ -64,20 +64,31 @@ const ChefCartDetails = () => {
           <div className="card-body">
             <h2 className="card-title">{recipe_1}</h2>
 
-            <p>
-              {
-                <ul style={{ "list-style-type": "number" }}
-                >
-                  {ingredients_1.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
-                  ))}
-                </ul>
-              }
-            </p>
+            <div>
+              <ul style={{ listStyleType: "number" }}>
+                {ingredients_1.map((ingredient, index) => (
+                  <li key={index}>{ingredient}</li>
+                ))}
+              </ul>
+            </div>
+
+
+
 
             <p className="mb-6">cookingMethod: {cookingMethod_1}</p>
-            <div className="mt-6">
-              <button className="btn btn-outline btn-secondary"><MdOutlineFavorite /> </button>
+            <div className="flex justify-between">
+              <div>
+                <button className="text-2xl btn btn-outline btn-secondary" onClick={handleFavoriteClick} disabled={buttonDisabled}>
+                  {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
+                </button>
+                {isFavorite && (
+                  ''
+                )}
+              </div>
+
+              <div>
+                <h2 className="text-2xl">{rating_1}</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -100,8 +111,19 @@ const ChefCartDetails = () => {
               }
             </p>
             <p className="mb-6">cookingMethod: {cookingMethod_2}</p>
-            <div className="mt-6">
-              <button className="btn btn-outline btn-secondary"><MdOutlineFavorite /> </button>
+            <div className="flex justify-between">
+              <div>
+                <button className="text-2xl btn btn-outline btn-secondary" onClick={handleFavoriteClick} disabled={buttonDisabled}>
+                  {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
+                </button>
+                {isFavorite && (
+                  ''
+                )}
+              </div>
+
+              <div>
+                <h2 className="text-2xl">{rating_1}</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -126,13 +148,11 @@ const ChefCartDetails = () => {
             <p className="mb-6">cookingMethod: {cookingMethod_3}</p>
             <div className="flex justify-between items-center">
               <div>
-                <button className="text-2xl" onClick={handleFavoriteClick} disabled={buttonDisabled}>
-                  {isFavorite ?<MdFavorite/> : <MdFavoriteBorder/>  }
+                <button className="text-2xl btn btn-outline btn-secondary" onClick={handleFavoriteClick} disabled={buttonDisabled}>
+                  {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
                 </button>
                 {isFavorite && (
-                  <div>
-                    <p>Recipe added to favorites!</p>
-                  </div>
+                  ''
                 )}
               </div>
 
