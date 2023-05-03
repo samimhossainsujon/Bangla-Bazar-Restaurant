@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { AiFillLike } from "react-icons/ai";
-import { MdOutlineFavorite, MdFavorite, MdFavoriteBorder } from 'react-icons/md';
+import { AiFillLike, AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { FaRegStar, } from "react-icons/fa";
+import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
+import Rating from "react-rating";
 
 
 
@@ -24,7 +26,8 @@ const ChefCartDetails = () => {
     image_3, recipe_1, recipe_2, recipe_3, cookingMethod_1, cookingMethod_2,
     cookingMethod_3, rating_1, rating_2, rating_3,
   } = Chefdata;
-  console.log(ingredients_1);
+  console.log(rating_1);
+
   return (
     <div>
       <div className="w-full bg-base-100 ">
@@ -53,8 +56,6 @@ const ChefCartDetails = () => {
       </div>
 
 
-
-
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 py-3 px-3">
 
         <div className="card w-96 bg-base-100 shadow-xl mt-10 bg-slate-300">
@@ -71,10 +72,6 @@ const ChefCartDetails = () => {
                 ))}
               </ul>
             </div>
-
-
-
-
             <p className="mb-6">cookingMethod: {cookingMethod_1}</p>
             <div className="flex justify-between">
               <div>
@@ -86,9 +83,17 @@ const ChefCartDetails = () => {
                 )}
               </div>
 
-              <div>
-                <h2 className="text-2xl">{rating_1}</h2>
+              <div className="rating-container">
+                <Rating
+                  placeholderRating={rating_1}
+                  readonly
+                  emptySymbol={<FaRegStar />}
+                  placeholderSymbol={<AiOutlineStar />}
+                  fullSymbol={<AiFillStar />}
+                />
+                <span>{rating_1}</span>
               </div>
+
             </div>
           </div>
         </div>
@@ -122,7 +127,8 @@ const ChefCartDetails = () => {
               </div>
 
               <div>
-                <h2 className="text-2xl">{rating_1}</h2>
+                {/* <span>{rating_1?.number} asdf</span> */}
+
               </div>
             </div>
           </div>
