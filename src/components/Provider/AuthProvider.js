@@ -18,6 +18,8 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loding, setloding] = useState(true);
+  
+
 
   //=========================
   //   SIGN UP

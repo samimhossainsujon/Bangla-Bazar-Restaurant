@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AiFillLike } from "react-icons/ai";
-import { MdOutlineFavorite } from 'react-icons/md';
+import { MdOutlineFavorite, MdFavorite,MdFavoriteBorder } from 'react-icons/md';
 
 
 
 const ChefCartDetails = () => {
+
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+
+  function handleFavoriteClick() {
+    setIsFavorite(true);
+    setButtonDisabled(true);
+  }
 
   const Chefdata = useLoaderData();
 
@@ -69,7 +77,7 @@ const ChefCartDetails = () => {
 
             <p className="mb-6">cookingMethod: {cookingMethod_1}</p>
             <div className="mt-6">
-            <button className="btn btn-outline btn-secondary"><MdOutlineFavorite /> </button>
+              <button className="btn btn-outline btn-secondary"><MdOutlineFavorite /> </button>
             </div>
           </div>
         </div>
@@ -93,7 +101,7 @@ const ChefCartDetails = () => {
             </p>
             <p className="mb-6">cookingMethod: {cookingMethod_2}</p>
             <div className="mt-6">
-            <button className="btn btn-outline btn-secondary"><MdOutlineFavorite /> </button>
+              <button className="btn btn-outline btn-secondary"><MdOutlineFavorite /> </button>
             </div>
           </div>
         </div>
@@ -116,23 +124,31 @@ const ChefCartDetails = () => {
               }
             </p>
             <p className="mb-6">cookingMethod: {cookingMethod_3}</p>
-            <div className="mt-6">
-            <button className="btn btn-outline btn-secondary"><MdOutlineFavorite /> </button>
+            <div className="flex justify-between items-center">
+              <div>
+                <button className="text-2xl" onClick={handleFavoriteClick} disabled={buttonDisabled}>
+                  {isFavorite ?<MdFavorite/> : <MdFavoriteBorder/>  }
+                </button>
+                {isFavorite && (
+                  <div>
+                    <p>Recipe added to favorites!</p>
+                  </div>
+                )}
+              </div>
+
+              <div>
+                <h2 className="text-2xl">{rating_1}</h2>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
-
-
     </div>
-
-
-
-
-
-
   );
 };
 
 export default ChefCartDetails;
+
+
+
+

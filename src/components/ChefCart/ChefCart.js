@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AiFillLike } from "react-icons/ai";
+import LazyLoad from "react-lazy-load";
 
 const ChefCart = ({ Chefdata }) => {
   const {
@@ -14,8 +15,8 @@ const ChefCart = ({ Chefdata }) => {
     description,
     number_of_recipes,
   } = Chefdata;
- 
-  
+
+
   console.log(Numbers_of_recipes);
 
 
@@ -25,7 +26,11 @@ const ChefCart = ({ Chefdata }) => {
     <div className="card w-96 bg-slate-300 shadow-xl  ">
       <div className="avatar  justify-center">
         <div className="w-40 mt-2 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-          <img src={Chef_Picture} />
+         
+          <LazyLoad height={200} width={200} threshold={0.5}>
+            <img src={Chef_Picture} />
+          </LazyLoad>
+
         </div>
       </div>
       <div className="card-body">

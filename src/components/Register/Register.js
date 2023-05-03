@@ -6,6 +6,8 @@ const Register = () => {
   const { createUser, } = useContext(AuthContext);
   const [error, seterror] = useState();
   const [success, setsuccess] = useState();
+  const [photoUrl, setPhotoUrl] = useState();
+
 
 
   const handelRegister = (event) => {
@@ -15,7 +17,7 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    
+
 
 
 
@@ -127,3 +129,69 @@ const Register = () => {
 
 
 export default Register;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***
+ * import React, { useState } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
+function Example() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [photoUrl, setPhotoUrl] = useState('');
+
+  function handleRegister() {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // Update profile photo URL
+        user.updateProfile({
+          photoURL: photoUrl
+        }).then(() => {
+          // Profile photo URL updated successfully
+        }).catch((error) => {
+          // Error updating profile photo URL
+        });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // Handle error
+      });
+  }
+
+  return (
+    <div>
+      <label>Email:</label>
+      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <br />
+      <label>Password:</label>
+      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <br />
+      <label>Profile Photo URL:</label>
+      <input type="text" value={photoUrl} onChange={(e) => setPhotoUrl(e.target.value)} />
+      <br />
+      <button onClick={handleRegister}>Register</button>
+    </div>
+  );
+}
+
+export default Example;
+
+ */
