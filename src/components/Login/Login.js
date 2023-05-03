@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { BsGoogle } from "react-icons/bs";
@@ -8,8 +8,10 @@ const Login = () => {
   const { signIn, SingInGoogle, SignInGithub } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const [error, seterror] = useState();
+  const [success, setsuccess] = useState();
   console.log("login page ", location);
-  const from = location.state?.from?.pathname || `/ChefCartDetails`;
+  const from = location.state?.from?.pathname || "/";
 
   //=============================
   //google sing in google
@@ -22,9 +24,9 @@ const Login = () => {
   };
   //=============================
 
- 
-  
-  
+
+
+
   //=============================
   //google sing in github
   //=============================
@@ -40,17 +42,43 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    
+
+
+    //============================
+    //password validation function
+    //=================    
+
+    if (!password || password.length < 6) {
+      seterror("Please enter 6+ correct");
+      return;
+    }
+
+    //============================
+
+
+
+//============================
+// signing email password
+// =============================
 
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        setsuccess(loggedUser);
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        seterror(error.message);
       });
   };
+
+  //============================================
+  //=========================================
+  
+  
+  
+  
   return (
     <div>
       <Form onSubmit={handelLogin}>
@@ -85,6 +113,8 @@ const Login = () => {
                     required
                   />
                 </div>
+                <p className="text-lg text-red-700 font-bold">{error}</p>
+                <p className="text-lg text-success font-bold">{success}</p>
 
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Log in</button>

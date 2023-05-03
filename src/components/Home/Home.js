@@ -10,7 +10,7 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setChefData(data));
   }, []);
-  //   console.log(Chefdatas);
+    // console.log(Chefdatas);
 
   return (
     <div>
@@ -21,6 +21,8 @@ const Home = () => {
           <ChefCart key={Chefdata.id} Chefdata={Chefdata}></ChefCart>
         ))}
       </div>
+
+      
     </div>
   );
 };

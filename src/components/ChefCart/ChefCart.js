@@ -14,8 +14,14 @@ const ChefCart = ({ Chefdata }) => {
     description,
     number_of_recipes,
   } = Chefdata;
+ 
+  
+  console.log(Numbers_of_recipes);
+
+
 
   return (
+
     <div className="card w-96 bg-slate-300 shadow-xl  ">
       <div className="avatar  justify-center">
         <div className="w-40 mt-2 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -37,12 +43,17 @@ const ChefCart = ({ Chefdata }) => {
           <Link
             to={`/ChefCartDetails/${id}`}
             className="label-text-alt link link-hover text-blue-500 text-xl"
-          >
-            {View_Recipes_Button}
-          </Link>
+          >{View_Recipes_Button}</Link>
         </div>
       </div>
     </div>
+
+
+
+
+
+
+
   );
 };
 

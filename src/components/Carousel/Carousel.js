@@ -2,7 +2,7 @@ import React from "react";
 
 const Carousel = () => {
   return (
-    <div className="carousel w-fit h-80">
+    <div className="carousel w-fit h-80 my-12 rounded-3xl">
       <div id="slide1" className="carousel-item relative w-full">
         <img
           src="https://png.pngtree.com/background/20220727/original/pngtree-group-of-kids-in-red-santa-costume-singing-christmas-carols-on-picture-image_1835253.jpg"

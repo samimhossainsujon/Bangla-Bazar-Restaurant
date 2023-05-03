@@ -77,6 +77,11 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+
+  //=========================
+  //   SET USER
+  //=========================
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
       //   console.log("loggedUser", loggedUser);
@@ -85,6 +90,9 @@ const AuthProvider = ({ children }) => {
     });
     return () => unsubscribe();
   }, []);
+
+
+  //=========================
 
   const authInfo = {
     user,

@@ -14,9 +14,11 @@ import ChefCartDetails from "./components/ChefCart/ChefCartDetails";
 import AuthProvider from "./components/Provider/AuthProvider";
 import PrivateRoutes from "./components/Routers/PrivateRoutes";
 
+
+
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/",    
     element: <App></App>,
     children: [
       {
@@ -43,10 +45,14 @@ const router = createBrowserRouter([
       {
         path: "/ChefCartDetails/:id",
         element: <PrivateRoutes><ChefCartDetails></ChefCartDetails></PrivateRoutes>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/ChefCartDetails/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/ChefCartDetails/${params.id}`),
       },
+
+    
+
     ],
+
+
   },
 ]);
 

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import { hover } from "@testing-library/user-event/dist/hover";
 import './Header.css'
 
 const Header = () => {
@@ -80,8 +79,9 @@ const Header = () => {
               <label className="btn btn-ghost btn-circle avatar">
                 {user && (
                   <div className="w-24 rounded-full profiles__group">
-                    <img src={user?.photoURL} alt='' />
+                    <img src={user?.photoURL || "https://www.shutterstock.com/image-vector/man-icon-vector-600w-1040084344.jpg"} alt='' />
                     <p>{user?.displayName}</p>
+                    <p>{user?.email}</p>
                   </div>
                 )}
               </label>
