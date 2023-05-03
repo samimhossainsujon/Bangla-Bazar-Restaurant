@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer";
 import { Outlet } from "react-router-dom";
 
 const App = () => {
+ 
   return (
     <div className="px-10 p-5">
       <Header></Header>
