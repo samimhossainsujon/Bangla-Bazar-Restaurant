@@ -1,31 +1,14 @@
-# Name website
+# NAME
 
-This project is basically a Food related project. Here you can know the chef details and recipes of the chef.This project is mainly for food lover people to find a good food.
+This is a client-side recipe website created using React. The website allows users to browse various recipes and add them to their favorites list. Here are some key features of the website:
 
-![Logo](https://i.ibb.co/smrmKV3/logo-dark.png)
+- Users Can navigate to other page
+- Each recipe includes the recipe name, ingredients, cooking method, and rating.
+- Users can add recipes to their favorites list by clicking the "Add to favorites" button.
+- The website includes a responsive design that looks great on desktop and mobile devices.
+- This website includes contact page
+- In blog page User can download the blog pdf version
 
-## Authors
+To view the live site, visit: [url](https://chic-faun-1d0ec4.netlify.app/)
 
-- [@nafizalturabi](https://github.com/Nafiz-Al-Turabi)
-
-## 🚀 About Me
-
-I'm a junior developer...
-
-## Demo
-
-https://chef-recipe-hunting-b7944.web.app/
-
-## 🛠 Skills
-
-Javascript, HTML, CSS, bootstrap, tailwindcss...
-
-## Tech Stack
-
-**Client:** React router, TailwindCSS
-
-**Server:** https://chef-recipe-hunting-server-nafiz-al-turabi.vercel.app/
-
-## Roadmap
-
-- Programming-hero
+To view the server site, visit: [url](url)
