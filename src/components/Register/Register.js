@@ -11,6 +11,8 @@ const Register = () => {
 
 
 
+
+
   const handelRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -18,6 +20,7 @@ const Register = () => {
     const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
+    // console.log(photoUrl);
 
 
     if (!password || password.length < 6) {
@@ -27,12 +30,19 @@ const Register = () => {
 
 
 
-    
 
-    createUser(email, password)
+
+    createUser(email, password, photoUrl)
       .then(result => {
         const CreatedUser = result.user
-        setsuccess("loging doen");
+        console.log(createUser);
+        setsuccess("login done");
+
+        updateProfile(CreatedUser, {
+          displayName: name,
+          photoURL: photoUrl
+
+        })
       }).catch(error => {
         seterror(error.message);
       })

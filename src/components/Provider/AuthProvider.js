@@ -128,10 +128,10 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    loding,
     createUser,
     signIn,
     LogOut,
-    loding,
     SingInGoogle,
     SignInGithub,
     

@@ -83,27 +83,30 @@ const ChefCartDetails = () => {
             <p className="mb-6">cookingMethod: {cookingMethod_1}</p>
             <div className="flex justify-between">
               <div>
-                <button className="text-2xl btn btn-outline btn-secondary"
-                  onClick={() => { handleFavoriteClick(); notify(); }}
-                  disabled={buttonDisabled}
+                <button className="text-2xl btn btn-outline 
+                btn-secondary"
+             onClick={() => { handleFavoriteClick(); notify(); }}
+             disabled={buttonDisabled}
                 >
-                  {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
+                  {isFavorite ? <MdFavorite /> 
+                  : <MdFavoriteBorder />}
                 </button>
+                
                 <ToastContainer />
                 {isFavorite && (
                   ''
                 )}
               </div>
 
-              <div className="rating-container">
+              <div className="rating-container text-2xl">
                 <Rating
-                  placeholderRating={rating_1}
+                  placeholderRating={rating_1.length}
                   readonly
                   emptySymbol={<FaRegStar />}
                   placeholderSymbol={<AiOutlineStar />}
                   fullSymbol={<AiFillStar />}
                 />
-                <span>{rating_1}</span>
+               
               </div>
 
             </div>
@@ -142,7 +145,7 @@ const ChefCartDetails = () => {
               </div>
 
               <div>
-                {/* <span>{rating_1?.number} asdf</span> */}
+                <span>{rating_1}</span>
 
               </div>
             </div>

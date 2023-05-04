@@ -14,7 +14,8 @@ const Header = () => {
       .catch((error) => {
         // console.log(error);
       });
-  };
+    };
+    // console.log(user);
   return (
     <div>
       <div className="navbar bg-slate-300 mb-5 rounded-lg">
@@ -79,7 +80,7 @@ const Header = () => {
               <label className="btn btn-ghost btn-circle avatar">
                 {user && (
                   <div className="w-24 rounded-full profiles__group">
-                    <img src={user?.photoURL || "https://www.shutterstock.com/image-vector/man-icon-vector-600w-1040084344.jpg"} alt='' />
+                    <img src={user?.photoURL} alt='' />
                     <p>{user?.displayName}</p>
                     <p>{user?.email}</p>
                   </div>
