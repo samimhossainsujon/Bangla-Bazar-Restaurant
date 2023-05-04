@@ -17,7 +17,7 @@ const ChefCart = ({ Chefdata }) => {
   } = Chefdata;
 
 
-  console.log(Numbers_of_recipes);
+  // console.log(Numbers_of_recipes);
 
 
 

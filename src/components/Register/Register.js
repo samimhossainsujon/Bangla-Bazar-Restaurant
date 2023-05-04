@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { createUser, } = useContext(AuthContext);
+  const { createUser, updatePhotoURL } = useContext(AuthContext);
   const [error, seterror] = useState();
   const [success, setsuccess] = useState();
   const [photoUrl, setPhotoUrl] = useState();
@@ -14,12 +15,9 @@ const Register = () => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
-    const photo = form.photo.value;
+    const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
-
-
-
 
 
     if (!password || password.length < 6) {
@@ -27,6 +25,9 @@ const Register = () => {
       return;
     }
 
+
+
+    
 
     createUser(email, password)
       .then(result => {
@@ -69,10 +70,14 @@ const Register = () => {
                   <input
                     type="text"
                     placeholder="Enter your Photo Url here"
-                    name="photo"
+                    name="photoUrl"
                     className="input input-bordered"
+                    value={photoUrl}
+                    onChange={(e) => setPhotoUrl(e.target.value)}
                     required
                   />
+
+
                 </div>
 
                 <div className="form-control">

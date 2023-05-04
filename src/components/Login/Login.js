@@ -10,7 +10,7 @@ const Login = () => {
   const location = useLocation();
   const [error, seterror] = useState();
   const [success, setsuccess] = useState();
-  console.log("login page ", location);
+  // console.log("login page ", location);
   const from = location.state?.from?.pathname || "/";
 
   //=============================

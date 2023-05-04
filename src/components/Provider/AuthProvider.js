@@ -8,6 +8,7 @@ import {
   signOut,
   GoogleAuthProvider,
   GithubAuthProvider,
+  updateProfile,
 } from "firebase/auth";
 
 import app from "../Firebase/firebase.config";
@@ -18,7 +19,18 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loding, setloding] = useState(true);
-  
+
+
+
+  //=================================
+  //photos url setup
+  //=================================
+
+
+
+
+
+
 
 
   //=========================
@@ -34,6 +46,12 @@ const AuthProvider = ({ children }) => {
     setloding(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+
+
+
+
+
+
 
   //=========================
   //   SIGN IN WITH GOOGLE
@@ -52,6 +70,13 @@ const AuthProvider = ({ children }) => {
         console.log(error);
       });
   };
+
+
+
+
+
+
+
 
   //=========================
   //   SIGN IN WITH GITHUB
@@ -80,6 +105,11 @@ const AuthProvider = ({ children }) => {
   };
 
 
+
+
+
+
+
   //=========================
   //   SET USER
   //=========================
@@ -104,6 +134,7 @@ const AuthProvider = ({ children }) => {
     loding,
     SingInGoogle,
     SignInGithub,
+    
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
