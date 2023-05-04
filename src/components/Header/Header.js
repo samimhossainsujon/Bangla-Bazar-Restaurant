@@ -56,7 +56,7 @@ const Header = () => {
           </div>
           <Link
             to="/"
-            className=" btn-ghost normal-case text-lg font-bold font-black"
+            className=" btn-ghost normal-case text-lg font-bold text-black"
           >
             Bangla Bazar & Restaurant
           </Link>

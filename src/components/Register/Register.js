@@ -23,6 +23,7 @@ const Register = () => {
     // console.log(photoUrl);
 
 
+
     if (!password || password.length < 6) {
       seterror("Please enter 6+ correct");
       return;
@@ -37,6 +38,7 @@ const Register = () => {
         const CreatedUser = result.user
         console.log(createUser);
         setsuccess("login done");
+        
 
         updateProfile(CreatedUser, {
           displayName: name,
@@ -45,6 +47,7 @@ const Register = () => {
         })
       }).catch(error => {
         seterror(error.message);
+        
       })
   };
 
@@ -116,8 +119,17 @@ const Register = () => {
                   />
                 </div>
 
-                <p className="text-lg text-red-700 font-bold">{error}</p>
-                <p className="text-lg text-success font-bold">{success}</p>
+
+
+
+                {error && (
+                  <p className="text-lg text-red-700 font-bold">{error}</p>
+                )}
+                {success && (
+                  <p className="text-lg text-green-700 font-bold">{success}</p>
+                )
+                }
+
 
 
                 <div className="form-control mt-6">

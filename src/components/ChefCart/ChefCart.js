@@ -23,7 +23,7 @@ const ChefCart = ({ Chefdata }) => {
 
   return (
 
-    <div className="card w-96 bg-slate-300 shadow-xl  ">
+    <div className="card w-96 bg-slate-100 shadow-xl  ">
       <div className="avatar  justify-center">
         <div className="w-40 mt-2 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
          
@@ -45,8 +45,7 @@ const ChefCart = ({ Chefdata }) => {
           <button className="text-2xl flex text-black">
             {Likes} <AiFillLike className="ms-2 mt-1"></AiFillLike>
           </button>
-          <Link
-            to={`/ChefCartDetails/${id}`}
+          <Link  to={`/ChefCartDetails/${id}`}
             className="label-text-alt link link-hover text-blue-500 text-xl"
           >{View_Recipes_Button}</Link>
         </div>

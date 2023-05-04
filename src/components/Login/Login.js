@@ -42,7 +42,7 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    
+
 
 
     //============================
@@ -58,9 +58,9 @@ const Login = () => {
 
 
 
-//============================
-// signing email password
-// =============================
+    //============================
+    // signing email password
+    // =============================
 
     signIn(email, password)
       .then((result) => {
@@ -75,10 +75,10 @@ const Login = () => {
 
   //============================================
   //=========================================
-  
-  
-  
-  
+
+
+
+
   return (
     <div>
       <Form onSubmit={handelLogin}>
@@ -94,6 +94,7 @@ const Login = () => {
                     <span className="label-text">Email</span>
                   </label>
                   <input
+                    required
                     type="email"
                     placeholder="email"
                     className="input input-bordered"

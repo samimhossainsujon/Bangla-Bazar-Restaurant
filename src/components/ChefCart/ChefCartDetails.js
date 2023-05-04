@@ -35,9 +35,9 @@ const ChefCartDetails = () => {
     Likes, View_Recipes_Button, description, number_of_recipes,
     image_1, ingredients_1, ingredients_2, ingredients_3, image_2,
     image_3, recipe_1, recipe_2, recipe_3, cookingMethod_1, cookingMethod_2,
-    cookingMethod_3, rating_1, rating_2, rating_3,
+    cookingMethod_3, rating_1, rating_2, rating_3
   } = Chefdata;
-  console.log(rating_1);
+  // console.log();
 
   return (
     <div>
@@ -69,59 +69,13 @@ const ChefCartDetails = () => {
 
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 py-3 px-3">
 
-        <div className="card w-96 bg-base-100 shadow-xl mt-10 bg-slate-300">
+        <div className="card w-96  shadow-xl mt-10 bg-slate-300">
           <figure className="px-10 pt-10">
             <img src={image_1} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">{recipe_1}</h2>
-
-            <div>
-              <ul style={{ listStyleType: "number" }}>
-                {ingredients_1.map((ingredient, index) => (
-                  <li key={index}>{ingredient}</li>
-                ))}
-              </ul>
-            </div>
-            <p className="mb-6">cookingMethod: {cookingMethod_1}</p>
-            <div className="flex justify-between">
-              <div>
-                <button className="text-2xl btn btn-outline 
-                btn-secondary"
-                  onClick={() => { handleFavoriteClick(); notify(); }}
-                  disabled={buttonDisabled}
-                >
-                  {isFavorite ? <MdFavorite />
-                    : <MdFavoriteBorder />}
-                </button>
-
-                <ToastContainer />
-                {isFavorite && (
-                  ''
-                )}
-              </div>
-
-             
-
-              <div className='flex-grow-1 d-flex align-items-center'>
-                <Rating
-                  style={{ maxWidth: 150 }}
-                  value={Math.round(rating_1 || 0)} readOnly />
-                <span className='ms-2'> {rating_1}</span>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-
-        <div className="card w-96 bg-base-100 shadow-xl mt-10 bg-slate-300">
-          <figure className="px-10 pt-10">
-            <img src={image_2} alt="Shoes" className="rounded-xl" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">{recipe_2}</h2>
-            <p>
+            <h2 className="card-title text-2xl font-extrabold text-black">{recipe_1}</h2>
+            <p> <span className="text-lg text-black font-bold">Ingredients:</span>
               {
                 <ul style={{ "list-style-type": "number" }}
                 >
@@ -131,49 +85,8 @@ const ChefCartDetails = () => {
                 </ul>
               }
             </p>
-            <p className="mb-6">cookingMethod: {cookingMethod_2}</p>
+            <p className="mb-6"><span className="text-black font-bold text-lg">Cooking Method:</span> {cookingMethod_1}</p>
             <div className="flex justify-between">
-              <div>
-                <button className="text-2xl btn btn-outline btn-secondary"
-                  onClick={() => { handleFavoriteClick(); notify(); }}
-                  disabled={buttonDisabled}
-                >
-                  {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
-                </button>
-                {isFavorite && (
-                  ''
-                )}
-              </div>
-
-              <div className='flex-grow-1 d-flex align-items-center'>
-                <Rating
-                  style={{ maxWidth: 150 }}
-                  value={Math.round(rating_1 || 0)} readOnly />
-                <span className='ms-2'> {rating_1}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div className="card w-96 bg-base-100 shadow-xl mt-10 bg-slate-300">
-          <figure className="px-10 pt-10">
-            <img src={image_3} alt="Shoes" className="rounded-xl" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">{recipe_3}</h2>
-            <p>
-              {
-                <ul style={{ "list-style-type": "number" }}
-                >
-                  {ingredients_3.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
-                  ))}
-                </ul>
-              }
-            </p>
-            <p className="mb-6">cookingMethod: {cookingMethod_3}</p>
-            <div className="flex justify-between items-center">
               <div>
                 <button className="text-2xl btn btn-outline btn-secondary"
                   onClick={() => { handleFavoriteClick(); notify(); }}
@@ -190,6 +103,89 @@ const ChefCartDetails = () => {
                 <Rating
                   style={{ maxWidth: 150 }}
                   value={Math.round(rating_1 || 0)} readOnly />
+                <span className='ms-2 text-lg text-black font-extrabold'>
+                  {rating_1}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div className="card w-96 shadow-xl mt-10 bg-slate-300">
+          <figure className="px-10 pt-10">
+            <img src={image_2} alt="Shoes" className="rounded-xl" />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title text-2xl font-extrabold text-black">{recipe_2}</h2>
+            <p> <span className="text-lg text-black font-bold">Ingredients:</span>
+              {
+                <ul style={{ "list-style-type": "number" }}
+                >
+                  {ingredients_2.map((ingredient, index) => (
+                    <li key={index}>{ingredient}</li>
+                  ))}
+                </ul>
+              }
+            </p>
+            <p className="mb-6"><span className="text-black font-bold text-lg">Cooking Method: </span>{cookingMethod_2}</p>
+            <div className="flex justify-between">
+              <div>
+                <button className="text-2xl btn btn-outline btn-secondary"
+                  onClick={() => { handleFavoriteClick(); notify(); }}
+                  disabled={buttonDisabled}
+                >
+                  {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
+                </button>
+                {isFavorite && (
+                  ''
+                )}
+              </div>
+
+              <div className='flex items-center'>
+                <Rating
+                  style={{ maxWidth: 150 }}
+                  value={Math.round(rating_2 || 0)} readOnly />
+                <span className='ms-2 text-lg text-black font-extrabold'> {rating_2}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div className="card w-96 shadow-xl mt-10 bg-slate-300">
+          <figure className="px-10 pt-10">
+            <img src={image_3} alt="Shoes" className="rounded-xl" />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title text-2xl font-extrabold text-black">{recipe_3}</h2>
+            <p> <span className="text-lg text-black font-bold">Ingredients:</span>
+              {
+                <ul style={{ "list-style-type": "number" }}
+                >
+                  {ingredients_3.map((ingredient, index) => (
+                    <li key={index}>{ingredient}</li>
+                  ))}
+                </ul>
+              }
+            </p>
+            <p className="mb-6"><span className="text-black font-bold text-lg">Cooking Method:</span> {cookingMethod_3}</p>
+            <div className="flex justify-between">
+              <div>
+                <button className="text-2xl btn btn-outline btn-secondary"
+                  onClick={() => { handleFavoriteClick(); notify(); }}
+                  disabled={buttonDisabled}
+                >
+                  {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
+                </button>
+                {isFavorite && (
+                  ''
+                )}
+              </div>
+
+              <div className='flex items-center'>
+                <Rating
+                  style={{ maxWidth: 150 }}
+                  value={Math.round(rating_3 || 0)} readOnly />
                 <span className='ms-2 text-lg text-black font-extrabold'> {rating_3}</span>
               </div>
             </div>

@@ -3,10 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home";
-import Order_Now from "./components/Order_Now/Order_Now";
 import Blog from "./components/Blog/Blog";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
@@ -18,18 +16,16 @@ import PrivateRoutes from "./components/Routers/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
-    path: "/",    
+    path: "/",
     element: <App></App>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
+
       },
 
-      {
-        path: "/order",
-        element: <Order_Now></Order_Now>,
-      },
+
       {
         path: "/blog",
         element: <Blog></Blog>,
@@ -45,10 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/ChefCartDetails/:id",
         element: <PrivateRoutes><ChefCartDetails></ChefCartDetails></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/ChefCartDetails/${params.id}`),
+        loader: ({ params }) => fetch(`https://assignment-10-server-side-samimhossainsujon.vercel.app/ChefCartDetails/${params.id}`),
       },
 
-    
+
 
     ],
 
