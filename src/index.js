@@ -11,6 +11,7 @@ import Register from "./components/Register/Register";
 import ChefCartDetails from "./components/ChefCart/ChefCartDetails";
 import AuthProvider from "./components/Provider/AuthProvider";
 import PrivateRoutes from "./components/Routers/PrivateRoutes";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "/",
