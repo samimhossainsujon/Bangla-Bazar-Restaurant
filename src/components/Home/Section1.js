@@ -12,7 +12,7 @@ const Section1 = ({ section }) => {
                     <h2 className="card-title text-black font-extrabold text-xl justify-center items-center mb-3">{discount_Foot_1_Name}</h2>
                     <div className='flex justify-start text-purple-600 '>
                         <p className='font-extrabold text-2xl mb-4'>{discount_Foot_1_Payment}</p>
-                        <p className=' font-extrabold text-2xl'>{discount_Foot_1_discount} % discount</p>
+                        <p className=' font-extrabold text-2xl'>{discount_Foot_1_discount} % payment discount</p>
                     </div>
                     <div className="card-actions justify-center">
                         <button className="btn btn-outline btn-secondary">Order Now</button>

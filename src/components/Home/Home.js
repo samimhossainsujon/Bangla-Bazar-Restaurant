@@ -3,6 +3,8 @@ import ChefCart from "../ChefCart/ChefCart";
 import Img_Banner from "../Img_Banner/Img_Banner";
 import Section1 from "./Section1";
 import Section2 from "./Section2";
+import { CirclesWithBar } from 'react-loader-spinner';
+
 
 
 function Home() {
@@ -72,9 +74,14 @@ function Home() {
           left: '50%',
           transform: 'translate(-50%, -50%)'
         }}>
-
+          <CirclesWithBar
+            height="100"
+            width="100"
+            color="white"
+            ariaLabel='circles-with-bar-loading'
+          />
         </div>) : (Chefdatas.map((Chefdata) => (
-          <ChefCart key={Chefdata.id} Chefdata={Chefdata}></ChefCart>
+        <ChefCart key={Chefdata.id} Chefdata={Chefdata}></ChefCart>
         )
         ))}
 
