@@ -4,9 +4,12 @@ import { AiFillLike, AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { FaRegStar, } from "react-icons/fa";
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 import { GiLoveMystery } from 'react-icons/gi';
-import Rating from "react-rating";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+//================================================
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 
 
@@ -85,28 +88,26 @@ const ChefCartDetails = () => {
               <div>
                 <button className="text-2xl btn btn-outline 
                 btn-secondary"
-             onClick={() => { handleFavoriteClick(); notify(); }}
-             disabled={buttonDisabled}
+                  onClick={() => { handleFavoriteClick(); notify(); }}
+                  disabled={buttonDisabled}
                 >
-                  {isFavorite ? <MdFavorite /> 
-                  : <MdFavoriteBorder />}
+                  {isFavorite ? <MdFavorite />
+                    : <MdFavoriteBorder />}
                 </button>
-                
+
                 <ToastContainer />
                 {isFavorite && (
                   ''
                 )}
               </div>
 
-              <div className="rating-container text-2xl">
+             
+
+              <div className='flex-grow-1 d-flex align-items-center'>
                 <Rating
-                  placeholderRating={rating_1.length}
-                  readonly
-                  emptySymbol={<FaRegStar />}
-                  placeholderSymbol={<AiOutlineStar />}
-                  fullSymbol={<AiFillStar />}
-                />
-               
+                  style={{ maxWidth: 150 }}
+                  value={Math.round(rating_1 || 0)} readOnly />
+                <span className='ms-2'> {rating_1}</span>
               </div>
 
             </div>
@@ -144,9 +145,11 @@ const ChefCartDetails = () => {
                 )}
               </div>
 
-              <div>
-                <span>{rating_1}</span>
-
+              <div className='flex-grow-1 d-flex align-items-center'>
+                <Rating
+                  style={{ maxWidth: 150 }}
+                  value={Math.round(rating_1 || 0)} readOnly />
+                <span className='ms-2'> {rating_1}</span>
               </div>
             </div>
           </div>
@@ -183,8 +186,11 @@ const ChefCartDetails = () => {
                 )}
               </div>
 
-              <div>
-                <h2 className="text-2xl">{rating_1}</h2>
+              <div className='flex items-center'>
+                <Rating
+                  style={{ maxWidth: 150 }}
+                  value={Math.round(rating_1 || 0)} readOnly />
+                <span className='ms-2 text-lg text-black font-extrabold'> {rating_3}</span>
               </div>
             </div>
           </div>
