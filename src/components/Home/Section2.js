@@ -10,7 +10,7 @@ const Section2 = ({ section }) => {
                 <figure><img src={Buy_One_1_footImg} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-black font-extrabold text-xl flex justify-center mb-1">{Buy_One_1_footName}</h2>
-                    <div className='flex justify-between font-bold text-lg'>
+                    <div className='flex flex-col md:flex-row justify-between font-bold text-lg'>
                     <h1 className='text-blue-700'>Buy One Get One</h1>
                     <h1 className='text-red-600'>Only 5 day</h1>
                     </div>

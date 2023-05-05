@@ -12,12 +12,12 @@ const Header = () => {
         // console.log("Logged out successfully");
       })
       .catch((error) => {
-        // console.log(error);
+        
       });
     };
-    // console.log(user);
+  
   return (
-    <div>
+    <div className="w-11/12 md:w-10/12 mx-auto ">
       <div className="navbar bg-slate-300 mb-5 rounded-lg">
         <div className="navbar-start">
           <div className="dropdown">

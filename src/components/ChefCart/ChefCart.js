@@ -23,29 +23,30 @@ const ChefCart = ({ Chefdata }) => {
 
   return (
 
-    <div className="card w-96 bg-slate-100 shadow-xl  ">
+    <div className="card w-full bg-slate-100 shadow-xl  ">
       <div className="avatar  justify-center">
-        <div className="w-40 mt-2 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-         
+        <div className="w-40 mt-2 rounded-full ring ring-primary 
+        ring-offset-base-100 ring-offset-2">
           <LazyLoad height={200} width={200} threshold={0.5}>
-            <img src={Chef_Picture} />
+            <img src={Chef_Picture} alt="" />
           </LazyLoad>
-
         </div>
       </div>
       <div className="card-body">
-        <h2 className="card-title justify-center font-extrabold text-2xl text-black">
+        <h2 className="card-title justify-center font-extrabold
+         text-2xl text-black">
           {Chef_Name}
         </h2>
-        <div className="flex justify-between text-lg font-bold text-slate-700">
+        <div className="flex flex-col md:flex-row justify-between text-lg font-bold
+         text-slate-700">
           <h4>Experience {Years_of_experience} Years</h4>
           <h4>Recipe {Numbers_of_recipes} Item</h4>
         </div>
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between">
           <button className="text-2xl flex text-black">
             {Likes} <AiFillLike className="ms-2 mt-1"></AiFillLike>
           </button>
-          <Link  to={`/ChefCartDetails/${id}`}
+          <Link to={`/ChefCartDetails/${id}`}
             className="label-text-alt link link-hover text-blue-500 text-xl"
           >{View_Recipes_Button}</Link>
         </div>

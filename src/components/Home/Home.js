@@ -61,7 +61,12 @@ function Home() {
       // Banner section with img
       //================================
        */}
-      <Img_Banner></Img_Banner>
+
+
+      <div className="w-11/12 md:10/12 mx-auto">
+        <Img_Banner></Img_Banner>
+
+      </div>
 
 
 
@@ -70,29 +75,33 @@ function Home() {
       // Chef card data showing map 
       //================================
        */}
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 py-3 px-3">
-
-        {loading ? (<div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)'
-        }}>
-          <CirclesWithBar
-            height="100"
-            width="100"
-            color="white"
-            ariaLabel='circles-with-bar-loading'
-          />
-        </div>) : (Chefdatas.map((Chefdata) => (
-          <ChefCart key={Chefdata.id} Chefdata={Chefdata}></ChefCart>
-        )
-        ))}
 
 
 
 
+      <div className="w-11/12 md:10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+      lg:grid-cols-3 gap-5 mt-10 py-3 px-3">
+        {loading ? (
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)'
+          }}>
+            <CirclesWithBar
+              height="100"
+              width="100"
+              color="white"
+              ariaLabel='circles-with-bar-loading'
+            />
+          </div>
+        ) : (
+          Chefdatas.map((Chefdata) => (
+            <ChefCart key={Chefdata.id} Chefdata={Chefdata}></ChefCart>
+          ))
+        )}
       </div>
+
 
 
 
@@ -104,13 +113,14 @@ function Home() {
       //================================
        */}
 
-      <div className="mt-14">
+      <div className="mt-14 w-11/12 md:10/12 mx-auto">
         <h1 className="text-4xl text-black font-extrabold 
         text-center underline underline-offset-8">Buy One Get One Free </h1>
 
       </div>
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 py-3 px-3">
+      <div className="w-11/12 md:10/12 mx-auto grid sm:grid-cols-1 
+      md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 py-3 px-3">
         {SectionTwo.map((section) => (
           <Section2 key={section.id} section={section}></Section2>
         ))}
@@ -126,14 +136,14 @@ function Home() {
        */}
 
 
-      <div className="mt-14">
+      <div className="mt-14 w-11/12 md:10/12 mx-auto">
         <h1 className="text-4xl text-black font-extrabold 
         text-center underline underline-offset-8">Online Payment Discount</h1>
 
       </div>
 
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 py-3 px-3">
+      <div className="w-11/12 md:10/12 mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 py-3 px-3">
         {SectionOne.map((section) => (
           <Section1 key={section.id} section={section}></Section1>
         ))}

@@ -6,9 +6,9 @@ import { Outlet } from "react-router-dom";
 const App = () => {
  
   return (
-    <div className="px-10 p-5">
+    <div className="px-1 md:px-10">
       <Header></Header>
-      <div className="px-6">
+      <div className="px-1 md:px-10">
         <Outlet />
         <Footer></Footer>
       </div>
