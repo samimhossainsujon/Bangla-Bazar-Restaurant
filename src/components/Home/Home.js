@@ -7,6 +7,10 @@ import { CirclesWithBar } from 'react-loader-spinner';
 
 
 
+
+
+
+
 function Home() {
   const [Chefdatas, setChefData] = useState([]);
   const [SectionOne, setSection1] = useState([]);
@@ -81,7 +85,7 @@ function Home() {
             ariaLabel='circles-with-bar-loading'
           />
         </div>) : (Chefdatas.map((Chefdata) => (
-        <ChefCart key={Chefdata.id} Chefdata={Chefdata}></ChefCart>
+          <ChefCart key={Chefdata.id} Chefdata={Chefdata}></ChefCart>
         )
         ))}
 
@@ -102,7 +106,8 @@ function Home() {
 
       <div className="mt-14">
         <h1 className="text-4xl text-black font-extrabold 
-        text-center">buy one and get one free </h1>
+        text-center underline underline-offset-8">Buy One Get One Free </h1>
+
       </div>
 
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 py-3 px-3">
@@ -119,6 +124,13 @@ function Home() {
       // section 1 payment and cash back
       //================================
        */}
+
+
+      <div className="mt-14">
+        <h1 className="text-4xl text-black font-extrabold 
+        text-center underline underline-offset-8">Online Payment Discount</h1>
+
+      </div>
 
 
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 py-3 px-3">

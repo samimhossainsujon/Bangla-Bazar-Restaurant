@@ -11,4 +11,4 @@ This is a client-side recipe website created using React. The website allows use
 
 To view the live site, visit: [url](https://chic-faun-1d0ec4.netlify.app/)
 
-To view the server site, visit: [url](url)
+To view the server site, visit: [url](https://assignment-10-server-side-samimhossainsujon.vercel.app/)
