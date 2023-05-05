@@ -10,7 +10,7 @@ const Section1 = ({ section }) => {
                 <figure><img src={discount_Foot_Img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-black font-extrabold text-xl justify-center items-center mb-3">{discount_Foot_1_Name}</h2>
-                    <div className='flex text-purple-600 '>
+                    <div className='flex justify-evenly text-purple-600 '>
                         <p className='font-extrabold text-lg mb-4'>{discount_Foot_1_Payment} payment</p>
                         <p className=' font-extrabold text-lg'>{discount_Foot_1_discount}% discount</p>
                     </div>

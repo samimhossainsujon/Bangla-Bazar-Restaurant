@@ -9,7 +9,7 @@ const Footer = () => {
         <div>
           <div className="text-black text-3xl font-extrabold flex">
          <BiRestaurant className="mr-2 text-6xl"></BiRestaurant> 
-         Bangla Bazar & Restaurant All Social Media 
+         Bangla Bazar & Restaurant 
          
           </div>
           <div className="grid grid-flow-col gap-4 ">

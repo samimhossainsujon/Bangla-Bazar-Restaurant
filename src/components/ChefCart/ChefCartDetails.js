@@ -14,19 +14,15 @@ import '@smastrom/react-rating/style.css'
 
 
 const ChefCartDetails = () => {
-  const notify = () => toast("Favorite listed", {
-    icon: <GiLoveMystery className="text-2xl text-red-700"></GiLoveMystery>
-  });
 
 
-
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [buttonDisabled, setButtonDisabled] = useState(false);
-
-  function handleFavoriteClick() {
-    setIsFavorite(true);
-    setButtonDisabled(true);
+  const notify = (e) => {
+    toast("Added to favorite!");
+    e.target.disabled = true;
   }
+
+
+
 
   const Chefdata = useLoaderData();
 
@@ -87,16 +83,12 @@ const ChefCartDetails = () => {
             </p>
             <p className="mb-6"><span className="text-black font-bold text-lg">Cooking Method:</span> {cookingMethod_1}</p>
             <div className="flex justify-between">
-              <div>
-                <button className="text-2xl btn btn-outline btn-secondary"
-                  onClick={() => { handleFavoriteClick(); notify(); }}
-                  disabled={buttonDisabled}
-                >
-                  {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
-                </button>
-                {isFavorite && (
-                  ''
-                )}
+
+
+
+              <div className="card-actions justify-end">
+                <button onClick={notify} className='btn btn-success'>Favorite</button>
+                <ToastContainer />
               </div>
 
               <div className='flex items-center'>
@@ -129,16 +121,14 @@ const ChefCartDetails = () => {
             </p>
             <p className="mb-6"><span className="text-black font-bold text-lg">Cooking Method: </span>{cookingMethod_2}</p>
             <div className="flex justify-between">
-              <div>
-                <button className="text-2xl btn btn-outline btn-secondary"
-                  onClick={() => { handleFavoriteClick(); notify(); }}
-                  disabled={buttonDisabled}
-                >
-                  {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
-                </button>
-                {isFavorite && (
-                  ''
-                )}
+
+
+
+
+              <div className="card-actions justify-end">
+                <button onClick={notify} className='btn btn-success'>Favorite</button>
+                <ToastContainer />
+
               </div>
 
               <div className='flex items-center'>
@@ -170,16 +160,12 @@ const ChefCartDetails = () => {
             </p>
             <p className="mb-6"><span className="text-black font-bold text-lg">Cooking Method:</span> {cookingMethod_3}</p>
             <div className="flex justify-between">
-              <div>
-                <button className="text-2xl btn btn-outline btn-secondary"
-                  onClick={() => { handleFavoriteClick(); notify(); }}
-                  disabled={buttonDisabled}
-                >
-                  {isFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
-                </button>
-                {isFavorite && (
-                  ''
-                )}
+
+
+
+              <div className="card-actions justify-end">
+                <button onClick={notify} className='btn btn-success'>Favorite</button>
+                <ToastContainer />
               </div>
 
               <div className='flex items-center'>
